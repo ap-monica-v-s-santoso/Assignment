@@ -1,0 +1,29 @@
+.report-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h1, h4 {
+    margin-bottom: 16px;
+  }
+
+  .post-report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+  }
+}

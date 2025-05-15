@@ -1,0 +1,36 @@
+<div class="post-list-container">
+  <h1 class="mb-4">Post List</h1>
+
+  <div class="search-bar mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search a post"
+      [(ngModel)]="searchForLocalQuery"
+      (input)="filterPosts()">
+  </div>
+  <p style="font-size: 22px">The highlight is to highlight any results where the word <strong>'rerum'</strong> appears in the <strong>'body'</strong> field.</p>
+
+  <div
+    class="card-content"
+    *ngFor="let post of filteredPosts"
+    [class.highlight]=hasRerum(post.body)
+    (click)="showComments(post.id)"
+    style="cursor: pointer;"
+  >
+
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="mb-3" [innerHTML]="boldtheWordOfRerum(post.body)"></p>
+    </div>
+
+    <button class="button-comments" (click)="showComments(post.id)">View Comments</button>
+    <div *ngIf="commentsByPost[post.id]">
+      <div *ngFor="let comment of commentsByPost[post.id]" class="comment-card">
+        <p><strong>{{ comment.name }}</strong></p>
+        <p>{{ comment.body }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

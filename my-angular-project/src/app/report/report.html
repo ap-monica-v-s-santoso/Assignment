@@ -1,0 +1,30 @@
+<div class="report-container container mt-4">
+  <h1 class="mb-4">Reports</h1>
+
+  <!-- Report 1 = show the "rerum" ONLY in body-->
+  <div class="mb-4">
+    <h4>
+      Total posts containing <code style="color: firebrick">"rerum"</code> in body:
+      <strong>{{ rerumCount }}</strong>
+    </h4>
+  </div>
+
+  <!-- Report 2 = show 1 user id has how many post count-->
+  <h4 class="mb-3">Posts per User</h4>
+  <table class="post-report-table">
+    <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Post Count</th>
+      <th>Post ID Range</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entry of postCounts">
+      <td>{{entry.userId }}</td>
+      <td>{{entry.count }}</td>
+      <td>{{entry.range}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
